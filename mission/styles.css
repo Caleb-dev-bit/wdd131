@@ -1,10 +1,15 @@
-body {
-    font-family: "Times New Roman", serif;
-    font-size: 20px;
-    line-height: 1.5;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+body.light {
+    background-color: white;
+    color: black;
+}
+
+body.dark {
+    background-color: #333;
+    color: white;
+}
+
+body.dark h2 {
+    color: #5DA9E9;
 }
 
 .content {
@@ -26,10 +31,6 @@ body {
 
 p {
     margin-bottom: 15px;
-}
-
-.does-list li {
-    margin-bottom: 10px;
 }
 
 .logo {
