@@ -33,7 +33,7 @@ header .menu-button {
   color: var(--text-light);
   font-size: 1.5em;
   cursor: pointer;
-  display: none; 
+  display: none;
 }
 
 header .nav-links {
@@ -83,11 +83,11 @@ footer {
 
 @media (max-width: 1000px) {
   header .menu-button {
-    display: block; 
+    display: block;
   }
 
   header .nav-links {
-    display: none; 
+    display: none;
     flex-direction: column;
     background-color: var(--primary-color);
     position: absolute;
@@ -104,20 +104,21 @@ footer {
   }
 
   .gallery {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1000px) {
   header .menu-button {
-    display: none; 
+    display: none;
   }
 
   header .nav-links {
-    display: flex; 
+    display: flex;
+    gap: 1em;
   }
 
   .gallery {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
   }
 }
