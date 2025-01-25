@@ -33,10 +33,12 @@ header .menu-button {
   color: var(--text-light);
   font-size: 1.5em;
   cursor: pointer;
+  display: none; 
 }
 
 header .nav-links {
-  display: none;
+  display: flex;
+  gap: 1em;
 }
 
 main {
@@ -57,21 +59,29 @@ main {
 }
 
 footer {
-  background-color: var(--primary-color); /* Matches header color */
+  background-color: var(--primary-color); 
   color: var(--text-light);
   text-align: center;
   padding: 1em;
 }
 
-@media (min-width: 700px) {
+@media (max-width: 1000px) {
+  header .menu-button {
+    display: block; 
+  }
+
+  header .nav-links {
+    display: none; 
+  }
+
   .gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media (min-width: 1000px) {
   header .menu-button {
-    display: none;
+    display: none; 
   }
 
   header .nav-links {
@@ -80,6 +90,6 @@ footer {
   }
 
   .gallery {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
