@@ -82,11 +82,55 @@ main h2 {
   object-fit: cover;
   border: 2px solid #ddd;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 footer {
   text-align: center;
   padding: 1em;
+}
+
+.hide {
+  display: none;
+}
+
+/* Modal (Image Viewer) Styling */
+.viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: visible;
+  opacity: 1;
+}
+
+.viewer img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.viewer button.close-viewer {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: var(--accent-color);
+  color: var(--text-light);
+  font-size: 1.5em;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+
+.viewer button.close-viewer:hover {
+  background: var(--primary-color);
 }
 
 @media (max-width: 1000px) {
