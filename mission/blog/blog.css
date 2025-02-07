@@ -2,12 +2,14 @@
     --gold: #EFC69B;
     --red: #AF1B3F;
     --dark: #473144;
+    --light-bg: #fff;
+    --text-color: #000;
 }
 
 body {
     font-family: Helvetica, Arial, sans-serif;
     background-color: var(--dark);
-    color: white;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
 }
@@ -69,8 +71,8 @@ main {
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 20px;
-    background-color: white;
-    color: black;
+    background-color: var(--light-bg);
+    color: var(--text-color);
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -93,8 +95,8 @@ main {
 }
 
 .filters {
-    background-color: white;
-    color: black;
+    background-color: var(--light-bg);
+    color: var(--text-color);
     padding: 15px;
     border-radius: 8px;
     display: flex;
