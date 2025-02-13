@@ -40,6 +40,10 @@ nav ul li a {
     font-weight: bold;
 }
 
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
 .skiptocontent a {
     position: absolute;
     top: -40px;
@@ -48,6 +52,7 @@ nav ul li a {
     color: white;
     padding: 10px;
     text-decoration: none;
+    transition: top 0.3s;
 }
 
 .skiptocontent a:focus {
@@ -68,20 +73,32 @@ main {
 }
 
 .review {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 20px;
+    display: flex;
+    align-items: center;
     background-color: var(--light-bg);
     color: var(--text-color);
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    gap: 20px;
 }
 
 .article-details {
     font-size: 14px;
     color: gray;
-    text-align: right;
+    width: 180px;
+    text-align: left;
+    border-right: 2px solid var(--gold);
+    padding-right: 15px;
+}
+
+.article-details p {
+    margin: 5px 0;
+}
+
+.article-content {
+    flex-grow: 1;
 }
 
 .article-content h2 {
@@ -90,8 +107,10 @@ main {
 }
 
 .article-content img {
-    width: 150px;
+    width: 180px;
+    height: auto;
     border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .filters {
