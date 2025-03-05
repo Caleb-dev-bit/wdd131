@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+:root {
+    --primary-color: #1B98E0;
+    --secondary-color: #59c3c3;
+    --text-dark: #333;
+    --text-light: #ebebeb;
+    --primary-font: "Pacifico", cursive;
+    --secondary-font: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-family: var(--secondary-font);
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    padding: 15px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+header img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+input[type="search"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button img {
+    height: 20px;
+}
+
+#recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.recipe-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: center;
+}
+
+.recipe-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.recipe-title {
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.rating {
+    font-size: 20px;
+    color: gold;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.8em;
+    background: var(--secondary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+@media (min-width: 600px) {
+    #recipes-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .recipe-card {
+        display: flex;
+        width: 80%;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .recipe-card img {
+        width: 40%;
+        border-radius: 5px;
+    }
+
+    .recipe-content {
+        width: 60%;
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    .recipe-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 960px) {
+    #recipes-container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .recipe-card {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
