@@ -1,26 +1,67 @@
-import("./recipes.mjs").then((module) => {
-    const recipes = module.default;
-    displayRecipes(recipes);
-}).catch((error) => console.error("Error loading recipes:", error));
+import recipes from "./recipes.mjs";
 
-function displayRecipes(recipesList) {
-    const recipesContainer = document.getElementById("recipes-container");
-    recipesContainer.innerHTML = "";
+function random(num) {
+    return Math.floor(Math.random() * num);
+}
 
-    recipesList.forEach(recipe => {
-        const article = document.createElement("article");
-        article.classList.add("recipe-card");
+function getRandomRecipe() {
+    return recipes[random(recipes.length)];
+}
 
-        article.innerHTML = `
-            <img src="${recipe.image}" alt="${recipe.name}">
-            <div class="recipe-content">
-                <p class="tags">${recipe.tags.map(tag => `<span class="tag">${tag}</span>`).join(" ")}</p>
-                <h2 class="recipe-title">${recipe.name}</h2>
-                <p class="rating">${'⭐'.repeat(Math.floor(recipe.rating))}</p>
-                <p class="description">${recipe.description}</p>
-            </div>
-        `;
+function recipeTemplate(recipe) {
+    return `
+    <figure class="recipe">
+        <img src="${recipe.image}" alt="${recipe.name}">
+        <figcaption>
+            <ul class="recipe__tags">${tagsTemplate(recipe.tags)}</ul>
+            <h2><a href="#">${recipe.name}</a></h2>
+            <p class="recipe__ratings">${ratingTemplate(recipe.rating)}</p>
+            <p class="recipe__description">${recipe.description}</p>
+        </figcaption>
+    </figure>`;
+}
 
-        recipesContainer.appendChild(article);
-    });
+function tagsTemplate(tags) {
+    return tags.map(tag => `<li>${tag}</li>`).join('');
+}
+
+function ratingTemplate(rating) {
+    let stars = '';
+    for (let i = 1; i <= 5; i++) {
+        stars += i <= rating 
+            ? `<span class="icon-star">⭐</span>` 
+            : `<span class="icon-star-empty">☆</span>`;
+    }
+    return `<span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">${stars}</span>`;
+}
+
+function renderRecipes(recipeList) {
+    const recipeContainer = document.getElementById("recipes-container");
+    recipeContainer.innerHTML = recipeList.map(recipeTemplate).join('');
+}
+
+function init() {
+    const randomRecipe = getRandomRecipe();
+    renderRecipes([randomRecipe]);
+}
+init();
+
+document.getElementById("search-form").addEventListener("submit", searchHandler);
+
+function searchHandler(e) {
+    e.preventDefault();
+    const query = document.getElementById("search").value.toLowerCase();
+    const filteredRecipes = filterRecipes(query);
+    renderRecipes(filteredRecipes);
+}
+
+function filterRecipes(query) {
+    return recipes
+        .filter(recipe => 
+            recipe.name.toLowerCase().includes(query) || 
+            recipe.description.toLowerCase().includes(query) ||
+            recipe.tags.some(tag => tag.toLowerCase().includes(query)) ||
+            recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(query))
+        )
+        .sort((a, b) => a.name.localeCompare(b.name));
 }
