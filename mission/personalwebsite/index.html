@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big Back Energy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Big Back Energy</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="roast-wall.html">Roast Wall</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <section class="log-form">
+      <h2>🏋️ Daily Workout Log</h2>
+      <form id="workoutForm">
+        <label for="muscleGroup">Muscle Group:</label>
+        <select id="muscleGroup">
+          <option>Back</option>
+          <option>Chest</option>
+          <option>Legs</option>
+          <option>Arms</option>
+          <option>Shoulders</option>
+        </select>
+
+        <label for="sets">Sets:</label>
+        <input type="number" id="sets" placeholder="e.g. 4" />
+
+        <label for="reps">Reps:</label>
+        <input type="number" id="reps" placeholder="e.g. 10" />
+
+        <label for="notes">Notes:</label>
+        <input type="text" id="notes" placeholder="e.g. PR on deadlifts!" />
+
+        <button type="submit">Log Workout</button>
+      </form>
+
+      <img src="back-flex.webp" alt="Lifter flexing back muscles" class="content-image" />
+    </section>
+
+    <section class="workout-summary">
+      <h2>📈 Recent Workouts</h2>
+      <div id="workoutFeed">
+        <p>No workouts logged yet.</p>
+      </div>
+    </section>
+
+    <section class="roast-quote">
+      <h2>🔥 Quote of the Day</h2>
+      <div id="dailyRoast">Loading roast...</div>
+      <button id="toggleQuote">Show Motivation</button>
+      <h3>🏆 Most Savage Roast</h3>
+      <p id="topRoast">Loading...</p>
+      <button id="toggleTheme">Toggle Dark Mode</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Big Back Energy</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
